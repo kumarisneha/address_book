@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <style type="text/css">
+    .redtext {
+  color: red;
+
+
+}
+  </style>
+  <meta charset="utf-8">
+  <!-- <link rel="stylesheet" href="/static/custom.css" type="text/css"/> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script> 
+</head>
+
+<body>
+
+<div class="col-sm-1">
+         <a href='/create/'><button type="button" class="btn btn-info btn-sm">
+          <span ></span> Create
+        </button></a>
+</div>
+<div></div>
+
+<div></div>
+
+
+
+<table class="table table-bordered" style="background-color: white">
+    <thead class="bg-primary">
+      <tr>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+    {% for x in username %}
+      <tr>
+        <td>{{x.user}}</td>
+        <td>
+       <a href='/delete/{{x.id}}/'><button type="button" class="btn btn-info btn-xs">
+          <span class="glyphicon glyphicon-remove"></span> Delete
+        </button></a>
+
+        <a href="/update/{{x.id}}/"><button type="button" class="btn btn-info btn-xs">
+          <span class="glyphicon glyphicon-edit"></span> Update
+        </button></a>       
+        </td>
+       
+      </tr>
+     {% endfor %}
+
+
+    </tbody>
+  </table>
+
+</body>
+</html>
