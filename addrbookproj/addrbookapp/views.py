@@ -5,6 +5,7 @@ from django.shortcuts import render
 from addrbookapp.models import Address
 from django.http import HttpResponseRedirect, HttpResponse
 from addrbookapp.forms import AddressBookForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 
 def create(request):
@@ -18,12 +19,17 @@ def create(request):
     return render(request, 'addressBook.html', {'form': form})  
 
 def home(request):
-    context={            
-        'username': Address.objects.all(),
-        }
-   
-    return render(request, 'index.html', context)
-
+    obj = Address.objects.all()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(obj, 5)
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        contacts = paginator.page(1)
+    except EmptyPage:
+        contacts = paginator.page(paginator.num_pages)
+    return render(request, 'index.html', { 'contacts': contacts })
+    
 def delete_contact(request, id):
     obj=Address.objects.get(id=id)
     obj.delete()
