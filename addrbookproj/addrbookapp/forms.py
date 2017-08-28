@@ -10,7 +10,7 @@ class AddressBookForm(forms.ModelForm):
         model = Address
         fields = ['id','user','email_id','address','phone_number']
         widgets = {
-            'user': TextInput(attrs={'class':'form-control form-control-solid placeholder-no-fix','placeholder':'User Name'}),
+            'user': TextInput(attrs={'class':'form-control','name':'user','placeholder':'User Name'}),
             'email_id': TextInput(attrs={'class':'form-control form-control-solid placeholder-no-fix','placeholder':'Email'}),
             'address': TextInput(attrs={'class':'form-control form-control-solid placeholder-no-fix','placeholder':'Address'}),
             'phone_number': TextInput(attrs={'class':'form-control form-control-solid placeholder-no-fix','placeholder':'Phone number'}),
