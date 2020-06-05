@@ -45,14 +45,14 @@ def delete_contact(request, id):
 def update_contact(request,id):
     obj= Address.objects.get(id = id)
     form = AddressBookForm(instance=obj)
-    print form.instance.id
+    print (form.instance.id)
     if request.method == 'POST':
         form = AddressBookForm(request.POST, instance=obj)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/')
         else:
-            print form.errors
+            print (form.errors)
     context={'form':form}     
     return render(request, 'update.html', context)
 def update_page(request, id):
@@ -63,7 +63,7 @@ def update_page(request, id):
             saveLogs(request,"You updated your Address Book")
             return HttpResponseRedirect('/')
         else:
-            print form.errors
+            print (form.errors)
 
 
 
