@@ -1,12 +1,8 @@
-
-=====================
-Dockerise_addr_book
-=====================
+### Dockerise Address Book
 
 A framework for deploying Django projects on Docker
 
-Installation
-::::::::::::::::::::::::::::::::::
+##### Installation
 
 First, `install Docker`__
 .. __install Docker: https://docs.docker.com/installation/
@@ -40,4 +36,4 @@ After running docker-compose up. You’ll see something like this in your consol
     web_1  | Starting development server at http://0.0.0.0:8000/
     web_1  | Quit the server with CONTROL-C.
    
-Open up a web browser and point it to 127.0.0.1:8000 or 0.0.0.0:8000 and you’ll see the home page. Awesome!
+Open up a web browser and point it to http://127.0.0.1:8000 or http://0.0.0.0:8000 and you’ll see the home page. Awesome!
