@@ -2,6 +2,7 @@
 =====================
 Dockerise_addr_book
 =====================
+
 A framework for deploying Django projects on Docker
 
 Installation
@@ -16,14 +17,14 @@ Next, clone this repo:
     $ git clone https://github.com/kumarisneha/address_book.git
     $ cd address_book
 
-Configure the project
-**********************
 Run the docker-compose file by:
 ::
+
     $ docker-compose up
 
 After running docker-compose up. You’ll see something like this in your console:
 ::
+
     sneha@Sneha-Aspire-4752:~/Desktop/dockerise_add_book/projects/address_book/addrbookproj$ docker-compose up
     Starting addrbookproj_web_1 ... done
     Attaching to addrbookproj_web_1
