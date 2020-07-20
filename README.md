@@ -37,3 +37,10 @@ After running docker-compose up. You’ll see something like this in your consol
     web_1  | Quit the server with CONTROL-C.
    
 Open up a web browser and point it to http://127.0.0.1:8000 or http://0.0.0.0:8000 and you’ll see the home page. Awesome!
+
+
+Future Task
+---------------
+1. Convert sqlite to postgreSql
+2.migration is not working inside docker-compose, check it
+3. Update project in Django==3.0.7 version
