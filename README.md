@@ -13,6 +13,19 @@ Next, clone this repo:
     $ git clone https://github.com/kumarisneha/address_book.git
     $ cd address_book
 
+To get the containers running, build the images and then start the services:
+::
+
+    $ docker-compose build
+    $ docker-compose up -d
+    OR
+    $ docker-compose up --build -d
+
+Once the services are running, we need to create the database migrations:
+::
+
+    $ docker-compose run web python manage.py migrate
+
 Run the docker-compose file by:
 ::
 
@@ -38,11 +51,8 @@ After running docker-compose up. You’ll see something like this in your consol
    
 Open up a web browser and point it to http://127.0.0.1:8000 or http://0.0.0.0:8000 and you’ll see the home page. Awesome!
 
-To get the containers running, build the images and then start the services:
-docker-compose build
-docker-compose up -d
-        OR
-docker-compose up --build -d
+To view the logs:
+::
 
-Once the services are running, we need to create the database migrations:
-docker-compose run web python manage.py migrate
+    $ docker-compose logs
+
