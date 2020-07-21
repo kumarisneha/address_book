@@ -38,9 +38,11 @@ After running docker-compose up. You’ll see something like this in your consol
    
 Open up a web browser and point it to http://127.0.0.1:8000 or http://0.0.0.0:8000 and you’ll see the home page. Awesome!
 
+To get the containers running, build the images and then start the services:
+docker-compose build
+docker-compose up -d
+        OR
+docker-compose up --build -d
 
-Future Task
----------------
-1. Convert sqlite to postgreSql
-2.migration is not working inside docker-compose, check it
-3. Update project in Django==3.0.7 version
+Once the services are running, we need to create the database migrations:
+docker-compose run web python manage.py migrate
