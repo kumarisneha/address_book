@@ -25,16 +25,13 @@ Once the services are running, we need to create the database migrations:
 ::
 
     $ docker-compose run web python manage.py migrate
+   
+Open up a web browser and point it to http://127.0.0.1:8000 or http://0.0.0.0:8000 and you’ll see the home page. Awesome!
 
-Run the docker-compose file by:
+Check for errors in the logs if this doesn't work via docker-compose logs -f
 ::
 
-    $ docker-compose up
-
-After running docker-compose up. You’ll see something like this in your console:
-::
-
-    sneha@Sneha-Aspire-4752:~/Desktop/dockerise_add_book/projects/address_book/addrbookproj$ docker-compose up
+    sneha@Sneha-Aspire-4752:~/Desktop/dockerise_add_book/projects/address_book/addrbookproj$ docker-compose logs
     Starting addrbookproj_web_1 ... done
     Attaching to addrbookproj_web_1
     web_1  | Watching for file changes with StatReloader
@@ -48,11 +45,30 @@ After running docker-compose up. You’ll see something like this in your consol
     web_1  | Django version 3.0.7, using settings 'addrbookproj.settings'
     web_1  | Starting development server at http://0.0.0.0:8000/
     web_1  | Quit the server with CONTROL-C.
-   
-Open up a web browser and point it to http://127.0.0.1:8000 or http://0.0.0.0:8000 and you’ll see the home page. Awesome!
 
-To view the logs:
+Bring down the development containers by:
 ::
 
-    $ docker-compose logs
+    $ docker-compose down
+    
+Bring down the development containers by:
+::
 
+    $ docker-compose down
+    
+If you want to stop your container and remove associated volumes you can do this with the -v flag:
+::
+
+    $ docker-compose down -v
+
+Ensure the default Django tables were created:
+::
+
+    $ docker-compose exec db psql --username=sneha --dbname=mydb
+
+
+
+You can check that the volume was created as well by running:
+::
+
+    $ docker volume inspect addrbookproj_pgdata
